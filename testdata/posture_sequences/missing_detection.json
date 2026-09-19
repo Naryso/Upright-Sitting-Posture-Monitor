@@ -1,0 +1,35 @@
+{
+  "name": "missing_detection",
+  "calibration": {
+    "goodPostureY": 0.60,
+    "badPostureY": 0.40,
+    "neutralY": 0.50,
+    "postureRange": 0.20,
+    "cameraId": "replay-camera",
+    "neutralFaceWidth": 0.20
+  },
+  "deadZone": 0.03,
+  "awayEnabled": true,
+  "events": [
+    { "atMs": 0, "kind": "missing" },
+    { "atMs": 250, "kind": "missing" },
+    { "atMs": 500, "kind": "missing" },
+    { "atMs": 750, "kind": "missing" },
+    { "atMs": 1000, "kind": "missing" },
+    { "atMs": 1250, "kind": "missing" },
+    { "atMs": 1500, "kind": "missing" },
+    { "atMs": 1750, "kind": "missing" },
+    { "atMs": 2000, "kind": "missing" },
+    { "atMs": 2250, "kind": "missing" },
+    { "atMs": 2500, "kind": "missing" },
+    { "atMs": 2750, "kind": "missing" },
+    { "atMs": 3000, "kind": "missing" },
+    { "atMs": 3250, "kind": "missing" },
+    { "atMs": 3500, "kind": "missing" }
+  ],
+  "expected": {
+    "isSlouching": false,
+    "isAway": true,
+    "slouchEventCount": 0
+  }
+}

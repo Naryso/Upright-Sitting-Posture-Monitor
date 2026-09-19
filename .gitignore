@@ -1,0 +1,32 @@
+# .NET build output
+bin/
+obj/
+TestResults/
+.packages/
+
+# IDE state
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Generated artifacts
+artifacts/*
+!artifacts/.gitkeep
+
+# Downloaded model binaries are accepted only after P2 provenance review.
+models/*.onnx
+models/*.tflite
+models/*.task
+
+# Local recordings and frame captures
+testdata/local/
+*.mp4
+*.avi
+*.mov
+
+# Packaging and signing output
+AppPackages/
+*.msix
+*.msixbundle
+*.pfx

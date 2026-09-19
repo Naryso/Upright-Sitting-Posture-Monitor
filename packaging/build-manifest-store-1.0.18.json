@@ -1,0 +1,43 @@
+{
+  "product": "Upright! - Sitting Posture Monitor",
+  "version": "1.0.18",
+  "builtOn": "2026-08-13",
+  "target": "win-x64",
+  "distribution": "Microsoft Store MSIX",
+  "storeIdentity": {
+    "packageName": "Naryso.Upright-SittingPostureMonitor",
+    "publisher": "CN=4D9EB1DD-5945-4823-BDEC-8858EC5C2DD5",
+    "publisherDisplayName": "Naryso",
+    "packageFamilyName": "Naryso.Upright-SittingPostureMonitor_e58jb1c7p9pt0",
+    "storeId": "9NCGJ06PV3TK"
+  },
+  "package": {
+    "file": "Upright-1.0.18-win-x64-store.msix",
+    "bytes": 105412251,
+    "sha256": "DE9B1B9D514A3006CBA8F9521BB43CC15F7B56B70333BF3D6BDDB9F0FB71E78A",
+    "packageVersion": "1.0.18.0",
+    "executableVersion": "1.0.18.0",
+    "architecture": "x64",
+    "signed": false,
+    "payloadFileCount": 508,
+    "capabilities": ["runFullTrust", "webcam"]
+  },
+  "validation": {
+    "releaseAutomatedTests": "passed; 92/92",
+    "normalStartup": "passed; main window created and process remained running",
+    "makeAppxPack": "passed",
+    "makeAppxUnpack": "passed",
+    "identityMatch": "passed",
+    "modelHashes": "passed",
+    "licensePayload": "passed",
+    "mainWindowSmoke": "passed and visually inspected",
+    "unpackedPayloadStartup": "passed; main window created and process remained running",
+    "localPackageRegistration": "not repeated; Store upload package is intentionally unsigned",
+    "storeSignedInstall": "pending Partner Center signing and distribution",
+    "partnerCenterUpload": "not performed"
+  },
+  "artifacts": {
+    "checksum": "SHA256SUMS-store-1.0.18.txt",
+    "mainWindowScreenshot": "main-window-smoke-store-1.0.18.png"
+  }
+}

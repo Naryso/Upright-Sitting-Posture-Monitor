@@ -1,0 +1,16 @@
+Upright! - Sitting Posture Monitor
+Copyright (c) 2026 Naryso
+
+This project is an adaptation of Dorso:
+Copyright (c) 2025 Posturr Contributors
+
+Upright and the original Dorso software are distributed under the MIT License.
+See LICENSE and licenses/UPSTREAM-MIT-LICENSE.txt.
+
+The binary distribution includes third-party software and machine-learning
+models under separate licenses. See THIRD_PARTY_NOTICES.md and the licenses
+directory. Third-party names are used for attribution only and do not imply
+endorsement.
+
+The MIT License grants rights in the software and project-authored assets. It
+does not grant trademark rights in the Upright name or logo.

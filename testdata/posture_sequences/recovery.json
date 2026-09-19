@@ -1,0 +1,36 @@
+{
+  "name": "recovery",
+  "calibration": {
+    "goodPostureY": 0.60,
+    "badPostureY": 0.40,
+    "neutralY": 0.50,
+    "postureRange": 0.20,
+    "cameraId": "replay-camera",
+    "neutralFaceWidth": 0.20
+  },
+  "deadZone": 0.03,
+  "events": [
+    { "atMs": 0, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 100, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 200, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 300, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 400, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 500, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 600, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 700, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 800, "kind": "observation", "noseY": 0.60 },
+    { "atMs": 900, "kind": "observation", "noseY": 0.60 },
+    { "atMs": 1000, "kind": "observation", "noseY": 0.60 },
+    { "atMs": 1100, "kind": "observation", "noseY": 0.60 },
+    { "atMs": 1200, "kind": "observation", "noseY": 0.60 },
+    { "atMs": 1300, "kind": "observation", "noseY": 0.60 },
+    { "atMs": 1400, "kind": "observation", "noseY": 0.60 },
+    { "atMs": 1500, "kind": "observation", "noseY": 0.60 },
+    { "atMs": 1600, "kind": "observation", "noseY": 0.60 }
+  ],
+  "expected": {
+    "isSlouching": false,
+    "isAway": false,
+    "slouchEventCount": 1
+  }
+}

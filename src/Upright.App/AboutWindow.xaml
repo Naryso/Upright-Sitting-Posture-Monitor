@@ -1,0 +1,244 @@
+<Window x:Class="Upright.App.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Upright.App"
+        Title="About Upright"
+        Width="680"
+        Height="680"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterScreen"
+        UseLayoutRounding="True"
+        Background="Transparent"
+        Foreground="#101828"
+        FontFamily="Segoe UI">
+    <Window.Resources>
+        <Style x:Key="SectionTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="#153B6B" />
+            <Setter Property="Margin" Value="0,0,0,6" />
+        </Style>
+
+        <Style x:Key="SectionBody" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="LineHeight" Value="21" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Foreground" Value="#475467" />
+        </Style>
+
+        <Style x:Key="HeaderButton" TargetType="Button">
+            <Setter Property="Width" Value="36" />
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Background"
+                                        Value="#F2F4F7" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Background"
+                                        Value="#E4E7EC" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="Transparent">
+        <Border x:Name="AboutShell"
+                Margin="14"
+                Background="White"
+                BorderBrush="#B8C2CF"
+                BorderThickness="1.2"
+                CornerRadius="16">
+            <Border.Effect>
+                <DropShadowEffect Color="#263238"
+                                  BlurRadius="28"
+                                  ShadowDepth="8"
+                                  Opacity="0.18" />
+            </Border.Effect>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="108" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="76" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"
+                      Margin="28,18,22,14"
+                      MouseLeftButtonDown="OnWindowDrag">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Width="170"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                        <Border Width="170"
+                                Height="49"
+                                HorizontalAlignment="Left">
+                            <Border.Background>
+                                <ImageBrush ImageSource="Assets/UprightWordmarkSource.png"
+                                            Stretch="Fill"
+                                            Viewbox="0.205,0.335,0.61,0.31"
+                                            ViewboxUnits="RelativeToBoundingBox" />
+                            </Border.Background>
+                        </Border>
+                        <TextBlock Margin="2,1,0,0"
+                                   HorizontalAlignment="Left"
+                                   FontSize="15"
+                                   Foreground="#667085"
+                                   Text="Posture Monitor" />
+                    </StackPanel>
+
+                    <Button x:Name="CloseHeaderButton"
+                            Grid.Column="1"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource HeaderButton}"
+                            Click="OnCloseClicked"
+                            ToolTip="Close">
+                        <Path Width="12"
+                              Height="12"
+                              Data="M 1,1 L 11,11 M 11,1 L 1,11"
+                              Stroke="#101828"
+                              StrokeThickness="1.8"
+                              StrokeStartLineCap="Round"
+                              StrokeEndLineCap="Round" />
+                    </Button>
+                </Grid>
+
+                <Border Grid.Row="1" Background="#D7DCE2" />
+
+                <ScrollViewer Grid.Row="2"
+                              Margin="30,22,30,10"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock x:Name="AboutTitleText"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   Foreground="#101828"
+                                   Text="About Upright" />
+
+                        <Border Margin="0,14,0,0"
+                                Padding="18,16"
+                                Background="#F5F9FF"
+                                BorderBrush="#CFE2FA"
+                                BorderThickness="1"
+                                CornerRadius="8">
+                            <StackPanel>
+                                <TextBlock x:Name="PurposeText"
+                                           Style="{StaticResource SectionBody}"
+                                           Text="{x:Static local:AboutDisclosure.Purpose}" />
+                            </StackPanel>
+                        </Border>
+
+                        <TextBlock Margin="0,24,0,8"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Foreground="#101828"
+                                   Text="Privacy" />
+                        <Border Padding="18,16"
+                                Background="#F7FAFC"
+                                BorderBrush="#D7E0EA"
+                                BorderThickness="1"
+                                CornerRadius="8">
+                            <TextBlock x:Name="PrivacyNoticeText"
+                                       Style="{StaticResource SectionBody}"
+                                       Text="{x:Static local:AboutDisclosure.PrivacyNotice}" />
+                        </Border>
+
+                        <Border Margin="0,24,0,18"
+                                Height="1"
+                                Background="#E4E7EC" />
+                        <TextBlock x:Name="ProductVersionText"
+                                   FontSize="15"
+                                   FontWeight="SemiBold"
+                                   Foreground="#344054"
+                                   Text="{x:Static local:AboutDisclosure.ProductVersion}" />
+                        <TextBlock x:Name="CopyrightNoticeText"
+                                   Margin="0,5,0,0"
+                                   FontSize="14"
+                                   Foreground="#667085"
+                                   Text="{x:Static local:AboutDisclosure.CopyrightNotice}" />
+                        <TextBlock x:Name="LicenseNoticeText"
+                                   Margin="0,18,0,0"
+                                   FontSize="14"
+                                   TextWrapping="Wrap"
+                                   Foreground="#344054"
+                                   Text="{x:Static local:AboutDisclosure.LicenseNotice}" />
+                        <TextBlock x:Name="ThirdPartyNoticeText"
+                                   Margin="0,7,0,2"
+                                   FontSize="14"
+                                   LineHeight="21"
+                                   TextWrapping="Wrap"
+                                   Foreground="#667085"
+                                   Text="{x:Static local:AboutDisclosure.ThirdPartyNotice}" />
+                    </StackPanel>
+                </ScrollViewer>
+
+                <Grid Grid.Row="3" Margin="30,10,30,20">
+                    <Button x:Name="CloseFooterButton"
+                            Width="126"
+                            Height="44"
+                            HorizontalAlignment="Right"
+                            Background="#0866D9"
+                            BorderBrush="#0866D9"
+                            BorderThickness="1"
+                            Foreground="White"
+                            FontSize="15"
+                            FontWeight="SemiBold"
+                            Cursor="Hand"
+                            Click="OnCloseClicked"
+                            Content="Close">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="ButtonBorder"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="6">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="ButtonBorder"
+                                                Property="Opacity"
+                                                Value="0.88" />
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="ButtonBorder"
+                                                Property="Opacity"
+                                                Value="0.72" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,27 @@
+{
+  "name": "threshold_boundary",
+  "calibration": {
+    "goodPostureY": 0.60,
+    "badPostureY": 0.40,
+    "neutralY": 0.50,
+    "postureRange": 0.20,
+    "cameraId": "replay-camera",
+    "neutralFaceWidth": 0.20
+  },
+  "deadZone": 0.03,
+  "events": [
+    { "atMs": 0, "kind": "observation", "noseY": 0.394001 },
+    { "atMs": 250, "kind": "observation", "noseY": 0.394001 },
+    { "atMs": 500, "kind": "observation", "noseY": 0.394001 },
+    { "atMs": 750, "kind": "observation", "noseY": 0.394001 },
+    { "atMs": 1000, "kind": "observation", "noseY": 0.394001 },
+    { "atMs": 1250, "kind": "observation", "noseY": 0.394001 },
+    { "atMs": 1500, "kind": "observation", "noseY": 0.394001 },
+    { "atMs": 1750, "kind": "observation", "noseY": 0.394001 }
+  ],
+  "expected": {
+    "isSlouching": false,
+    "isAway": false,
+    "slouchEventCount": 0
+  }
+}

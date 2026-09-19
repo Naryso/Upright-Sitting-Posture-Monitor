@@ -1,0 +1,106 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Upright.Core\Upright.Core.csproj" />
+    <ProjectReference Include="..\Upright.Vision\Upright.Vision.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\models\yolox-nano-person-416x416.onnx"
+             Link="models\yolox-nano-person-416x416.onnx"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\models\rtmpose-t-body17-256x192.onnx"
+             Link="models\rtmpose-t-body17-256x192.onnx"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\models\manifest.json"
+             Link="models\manifest.json"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\models\licenses\OpenMMLab.md"
+             Link="models\licenses\OpenMMLab.md"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\models\licenses\OpenMMLab-Apache-2.0-LICENSE.txt"
+             Link="models\licenses\OpenMMLab-Apache-2.0-LICENSE.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\LICENSE"
+             Link="LICENSE.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\NOTICE"
+             Link="NOTICE.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\THIRD_PARTY_NOTICES.md"
+             Link="THIRD_PARTY_NOTICES.md"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\docs\OPEN_SOURCE.md"
+             Link="OPEN_SOURCE.md"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\docs\INSTALL.md"
+             Link="INSTALL.md"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\docs\PRIVACY.md"
+             Link="PRIVACY.md"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\docs\RELEASE_NOTES.md"
+             Link="RELEASE_NOTES.md"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="..\..\licenses\UPSTREAM-MIT-LICENSE.txt"
+             Link="licenses\UPSTREAM-MIT-LICENSE.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="$(NuGetPackageRoot)\microsoft.ml.onnxruntime.directml\1.24.4\LICENSE"
+             Link="licenses\ONNX-Runtime-MIT-LICENSE.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="$(NuGetPackageRoot)\microsoft.ml.onnxruntime.directml\1.24.4\ThirdPartyNotices.txt"
+             Link="licenses\ONNX-Runtime-ThirdPartyNotices.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="$(NuGetPackageRoot)\microsoft.ai.directml\1.15.4\LICENSE.txt"
+             Link="licenses\DirectML-LICENSE.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="$(NuGetPackageRoot)\microsoft.ai.directml\1.15.4\ThirdPartyNotices.txt"
+             Link="licenses\DirectML-ThirdPartyNotices.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="$(NuGetPackageRoot)\microsoft.windowsdesktop.app.runtime.win-x64\10.0.10\LICENSE"
+             Link="licenses\DotNET-MIT-LICENSE.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="$(NuGetPackageRoot)\microsoft.netcore.app.runtime.win-x64\10.0.10\THIRD-PARTY-NOTICES.TXT"
+             Link="licenses\DotNET-ThirdPartyNotices.txt"
+             CopyToOutputDirectory="PreserveNewest"
+             CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="Assets\UprightIconSource.png" CopyToOutputDirectory="Never" />
+    <Resource Include="Assets\UprightWordmarkSource.png" />
+    <Content Include="Assets\StoreLogo.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="Assets\Square44x44Logo.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="Assets\Square150x150Logo.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="Assets\Square310x310Logo.png" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PlatformTarget>x64</PlatformTarget>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <ApplicationIcon>Assets\Upright.ico</ApplicationIcon>
+    <Version>1.0.18</Version>
+  </PropertyGroup>
+
+</Project>

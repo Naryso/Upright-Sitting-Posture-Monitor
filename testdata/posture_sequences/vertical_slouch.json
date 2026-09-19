@@ -1,0 +1,27 @@
+{
+  "name": "vertical_slouch",
+  "calibration": {
+    "goodPostureY": 0.60,
+    "badPostureY": 0.40,
+    "neutralY": 0.50,
+    "postureRange": 0.20,
+    "cameraId": "replay-camera",
+    "neutralFaceWidth": 0.20
+  },
+  "deadZone": 0.03,
+  "events": [
+    { "atMs": 0, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 100, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 200, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 300, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 400, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 500, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 600, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 700, "kind": "observation", "noseY": 0.38 }
+  ],
+  "expected": {
+    "isSlouching": true,
+    "isAway": false,
+    "slouchEventCount": 1
+  }
+}

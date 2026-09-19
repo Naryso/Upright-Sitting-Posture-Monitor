@@ -1,0 +1,198 @@
+<Window x:Class="Upright.App.FullScreenCalibrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Upright Full-Screen Calibration"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Topmost="True"
+        Background="Transparent"
+        Foreground="#17385F"
+        PreviewKeyDown="OnPreviewKeyDown">
+    <Window.Resources>
+        <Style x:Key="CalibrationButton"
+               TargetType="Button">
+            <Setter Property="Height" Value="46" />
+            <Setter Property="Padding" Value="22,0" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="13">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Opacity"
+                                        Value="0.85" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Opacity"
+                                        Value="0.68" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#01000000">
+        <Canvas x:Name="TargetCanvas"
+                SizeChanged="OnCanvasSizeChanged">
+            <Grid x:Name="CalibrationTarget"
+                  Width="112"
+                  Height="112"
+                  Cursor="Hand"
+                  MouseLeftButtonDown="OnTargetClicked"
+                  ToolTip="Click to capture">
+                <Grid.RenderTransform>
+                    <ScaleTransform CenterX="56"
+                                    CenterY="56" />
+                </Grid.RenderTransform>
+                <Grid.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                                 From="1"
+                                                 To="1.12"
+                                                 Duration="0:0:0.8"
+                                                 AutoReverse="True"
+                                                 RepeatBehavior="Forever" />
+                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY"
+                                                 From="1"
+                                                 To="1.12"
+                                                 Duration="0:0:0.8"
+                                                 AutoReverse="True"
+                                                 RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Grid.Triggers>
+                <Ellipse Stroke="#33176FE5"
+                         StrokeThickness="18" />
+                <Ellipse Margin="12"
+                         Stroke="#176FE5"
+                         StrokeThickness="6">
+                    <Ellipse.Effect>
+                        <DropShadowEffect Color="#176FE5"
+                                          BlurRadius="30"
+                                          ShadowDepth="0"
+                                          Opacity="0.75" />
+                    </Ellipse.Effect>
+                </Ellipse>
+                <Ellipse Width="16"
+                         Height="16"
+                         Fill="White" />
+            </Grid>
+        </Canvas>
+
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,32,0,0"
+                Padding="18,10"
+                CornerRadius="20"
+                Background="#F5FFFFFF"
+                BorderBrush="#B8D6F8"
+                BorderThickness="1">
+            <TextBlock x:Name="StepText"
+                       FontSize="17"
+                       FontWeight="SemiBold"
+                       Foreground="#155FBD"
+                       Text="Calibration 1/4" />
+        </Border>
+
+        <Border Width="720"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Padding="36"
+                CornerRadius="24"
+                Background="#F7FFFFFF"
+                BorderBrush="#B8D6F8"
+                BorderThickness="1">
+            <Border.Effect>
+                <DropShadowEffect Color="#17385F"
+                                  BlurRadius="30"
+                                  ShadowDepth="8"
+                                  Opacity="0.18" />
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock x:Name="CornerText"
+                           MaxWidth="640"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           FontSize="27"
+                           FontWeight="SemiBold"
+                           Foreground="#17385F"
+                           Text="Look at the top-left corner of the screen" />
+                <Border Width="400"
+                        Height="300"
+                        Margin="0,18,0,0"
+                        HorizontalAlignment="Center"
+                        Background="#0B1E35"
+                        BorderBrush="#B8D6F8"
+                        BorderThickness="1"
+                        CornerRadius="16">
+                    <Grid x:Name="PreviewSurface"
+                          Margin="2"
+                          ClipToBounds="True">
+                        <Image x:Name="CameraPreviewImage"
+                               Stretch="Uniform"
+                               SnapsToDevicePixels="True" />
+                        <Canvas IsHitTestVisible="False">
+                            <Ellipse x:Name="NoseMarker"
+                                     Width="18"
+                                     Height="18"
+                                     Fill="#FFD84D"
+                                     Stroke="White"
+                                     StrokeThickness="3"
+                                     Visibility="Collapsed" />
+                        </Canvas>
+                    </Grid>
+                </Border>
+                <TextBlock x:Name="InstructionText"
+                           MaxWidth="620"
+                           Margin="0,14,0,26"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           Foreground="#55718F"
+                           FontSize="16"
+                           LineHeight="24"
+                           Text="Keep a natural seated posture. Look at the ring, then press Space to capture. You can also click the ring." />
+                <StackPanel HorizontalAlignment="Center"
+                            Orientation="Horizontal">
+                    <Button Width="164"
+                            Background="#176FE5"
+                            BorderBrush="#176FE5"
+                            Foreground="White"
+                            Style="{StaticResource CalibrationButton}"
+                            Click="OnCaptureClicked"
+                            Content="Capture (Space)" />
+                    <Button Width="138"
+                            Margin="12,0,0,0"
+                            Background="#EEF6FF"
+                            BorderBrush="#A9CCF5"
+                            Foreground="#155FBD"
+                            Style="{StaticResource CalibrationButton}"
+                            Click="OnCancelClicked"
+                            Content="Cancel (Esc)" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>

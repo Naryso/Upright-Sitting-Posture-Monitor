@@ -1,0 +1,32 @@
+{
+  "name": "warning_onset_delay",
+  "calibration": {
+    "goodPostureY": 0.60,
+    "badPostureY": 0.40,
+    "neutralY": 0.50,
+    "postureRange": 0.20,
+    "cameraId": "replay-camera",
+    "neutralFaceWidth": 0.20
+  },
+  "deadZone": 0.03,
+  "warningOnsetDelayMs": 1000,
+  "events": [
+    { "atMs": 0, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 250, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 500, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 750, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 1000, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 1250, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 1500, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 1750, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 2000, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 2250, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 2500, "kind": "observation", "noseY": 0.38 },
+    { "atMs": 2750, "kind": "observation", "noseY": 0.38 }
+  ],
+  "expected": {
+    "isSlouching": true,
+    "isAway": false,
+    "slouchEventCount": 1
+  }
+}

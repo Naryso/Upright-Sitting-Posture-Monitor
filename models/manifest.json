@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "pipeline": "yolox-nano-person + rtmpose-t-body17",
+  "models": [
+    {
+      "id": "yolox-nano-person",
+      "file": "yolox-nano-person-416x416.onnx",
+      "sha256": "1450966DE24902B18AADA1A78913D7EFD8FC8DCD51BD4D0D5591476BD4A38821",
+      "sizeBytes": 3722395,
+      "sourceArchive": "https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/onnx_sdk/yolox_nano_8xb8-300e_humanart-40f6f0d0.zip",
+      "sourceArchiveSha256": "CD4FBEF13D5325FB550E06AC70C8DC06B082F206EA24ABC5BC4B1E60652A2596",
+      "release": "MMPose 1.2.0 / YOLOX-Nano HumanArt 2023-09-28",
+      "referenceAveragePrecision": 38.9,
+      "license": "Apache-2.0",
+      "licenseFile": "licenses/OpenMMLab.md",
+      "input": {
+        "name": "input",
+        "layout": "NCHW",
+        "shape": [1, 3, 416, 416],
+        "type": "float32",
+        "color": "BGR",
+        "range": [0, 255]
+      },
+      "outputs": [
+        { "name": "dets", "contract": "[batch,detections,5] x1,y1,x2,y2,score" },
+        { "name": "labels", "contract": "person labels" }
+      ]
+    },
+    {
+      "id": "rtmpose-t-body17",
+      "file": "rtmpose-t-body17-256x192.onnx",
+      "sha256": "A6C2F6A3896A4D51131D14D7A80A3D08B50F559AF5A58A45D5B098AEF510A70F",
+      "sizeBytes": 13350364,
+      "sourceArchive": "https://download.openmmlab.com/mmpose/v1/projects/rtmposev1/onnx_sdk/rtmpose-t_simcc-body7_pt-body7_420e-256x192-026a1439_20230504.zip",
+      "sourceArchiveSha256": "937003A70832D9CC34EA16927F504792F3133E92DDA1B9C626236BBBE9E805CB",
+      "release": "MMPose 1.1.0 / RTMPose-T Body17 2023-08-31",
+      "referenceAveragePrecision": 65.9,
+      "license": "Apache-2.0",
+      "licenseFile": "licenses/OpenMMLab.md",
+      "input": {
+        "name": "input",
+        "layout": "NCHW",
+        "shape": [1, 3, 256, 192],
+        "type": "float32",
+        "color": "RGB",
+        "normalization": {
+          "mean": [123.675, 116.28, 103.53],
+          "std": [58.395, 57.12, 57.375]
+        }
+      },
+      "outputs": [
+        { "name": "simcc_x", "contract": "[batch,17,384]" },
+        { "name": "simcc_y", "contract": "[batch,17,512]" }
+      ]
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "id": "rtmo-s-body17",
+      "reason": "CPU raw inference was approximately 105-115 ms before preprocessing; the selected two-stage models averaged 35 ms raw combined."
+    }
+  ],
+  "previousPipeline": [
+    {
+      "id": "yolox-tiny-person",
+      "file": "yolox-tiny-person-416x416.onnx",
+      "sha256": "CEB11C07298F95C50D7C5ABEB906D03340C85F23AA79E3E66966E7FB6C307250",
+      "sizeBytes": 20283006,
+      "referenceAveragePrecision": 47.7,
+      "lastShippedVersion": "1.0.13"
+    },
+    {
+      "id": "rtmpose-s-body17",
+      "file": "rtmpose-s-body17-256x192.onnx",
+      "sha256": "9AEB635B83F86AEA45CF45D85798F7EBA1A162DE8E0D721C44E54FE5EEBAF47D",
+      "sizeBytes": 21890172,
+      "referenceAveragePrecision": 69.7,
+      "lastShippedVersion": "1.0.13"
+    }
+  ]
+}
