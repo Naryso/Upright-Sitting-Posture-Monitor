@@ -7,9 +7,6 @@ Windows 11. It processes webcam frames locally, estimates changes in head
 position after calibration, and displays a gradual red warning around the
 screen when posture remains outside the calibrated range.
 
-Upright is a wellness tool, not a medical device. It does not diagnose or treat
-medical conditions and does not clinically measure thoracic kyphosis.
-
 ## Features
 
 - local webcam processing with no cloud inference;
