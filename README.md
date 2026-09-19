@@ -29,11 +29,9 @@ Requirements:
 
 - Windows 10 22H2 or later, x64;
 - .NET 10 SDK;
-- the two model files and hashes specified in `models/manifest.json`.
+- the two model files listed in `models/manifest.json`.
 
-Model binaries are intentionally not stored in Git. Download the two pinned
-OpenMMLab archives listed in `models/manifest.json`, verify their SHA-256
-hashes, and place these extracted files in `models/`:
+Download the model files and place them in `models/`:
 
 - `yolox-nano-person-416x416.onnx`
 - `rtmpose-t-body17-256x192.onnx`
@@ -43,9 +41,6 @@ dotnet restore .\Upright.Windows.sln
 dotnet build .\Upright.Windows.sln -c Release --no-restore
 dotnet test .\Upright.Windows.sln -c Release --no-build --no-restore
 ```
-
-The original macOS implementation is a behavioral reference and is not part of
-this Windows source distribution.
 
 ## Privacy
 
