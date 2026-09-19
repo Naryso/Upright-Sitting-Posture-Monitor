@@ -17,9 +17,6 @@ screen when posture remains outside the calibrated range.
 - compact notification-area application;
 - no account, analytics, advertising, or raw-frame storage.
 
-AirPods, Bluetooth, motion sensors, and automatic tracking-source switching are
-not part of the Windows application.
-
 ## Install
 
 The recommended release is available from the
